@@ -1,1 +1,10 @@
 @import "tailwindcss";
+
+@theme {
+  --color-background: #faf7f3; /* for page background */
+  --color-surface: #ffffff; /* for cards, navbar, modals */
+  --color-accent: #f0e4d3; /* for tags, badges, borders */
+  --color-secondary: #dcc5b2; /* for secondary buttons */
+  --color-primary: #d9a299; /* for buttons, links, focus */
+  --color-foreground: #2a211d; /* for text */
+}
