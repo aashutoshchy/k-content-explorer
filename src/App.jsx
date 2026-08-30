@@ -1,12 +1,8 @@
-import logo from './assets/logo.png'
+import { Outlet } from "react-router-dom";
+import Header from "./components/Header";
 
 function App() {
-  return (
-    <>
-      K-Content Explorer
-      <img src={logo} className="logo" alt="logo" />
-    </>
-  )
+  return <></>;
 }
 
-export default App
+export default App;
