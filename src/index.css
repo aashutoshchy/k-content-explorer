@@ -6,5 +6,6 @@
   --color-accent: #f0e4d3; /* for tags, badges, borders */
   --color-secondary: #dcc5b2; /* for secondary buttons */
   --color-primary: #d9a299; /* for buttons, links, focus */
+  --color-primary-hover: #be8981;
   --color-foreground: #2a211d; /* for text */
 }
