@@ -1,10 +1,20 @@
 import React from "react";
 import Button from "./Button";
+import { useNavigate } from "react-router-dom";
 
 function HeroBanner({ featured }) {
   console.log(featured);
+
+  const navigate = useNavigate();
+
+  const mediaType = featured.first_air_date ? "tv" : "movie";
+
+  const seeDetails = () => {
+    navigate(`/${mediaType}/${featured.id}`);
+  };
+
   return (
-    <div className="relative w-full h-[650px] overflow-hidden">
+    <div className="relative w-full h-[550px] overflow-hidden">
       <div className="absolute inset-0 bg-linear-to-t from-slate-900 to-white-50/10"></div>
       <img
         src={`https://image.tmdb.org/t/p/original/${featured.backdrop_path}`}
@@ -18,8 +28,11 @@ function HeroBanner({ featured }) {
         <div>⭐ {featured.vote_average} / 10</div>
         <p className="line-clamp-3">{featured.overview}</p>
         <div className="w-full space-x-5 space-y-2">
-          <Button text={"Watch Trailer"} icon={"play"} />
-          <Button text={"See Details"} icon={"circle-info"} />
+          <Button
+            onClick={seeDetails}
+            text={"See Details"}
+            icon={"circle-info"}
+          />
         </div>
       </div>
     </div>
