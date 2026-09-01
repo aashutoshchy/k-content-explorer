@@ -20,7 +20,7 @@ function DetailPage() {
   if (loading) return <div>Loading...</div>;
 
   return (
-    <div>
+    <div className="space-y-4">
       <div className="relative w-full h-[70vh]">
         <div className="absolute inset-0 bg-linear-to-t from-slate-900 to-white-80/10"></div>
         <img
@@ -51,7 +51,7 @@ function DetailPage() {
                 </span>
               </p>
             </div>
-            <p className="line-clamp-3">{detail.overview}</p>
+            <p className="line-clamp-3">{detail.tagline}</p>
             <div className="flex gap-4">
               {detail.genres.map((genre) => (
                 <p
@@ -64,6 +64,10 @@ function DetailPage() {
             </div>
           </div>
         </div>
+      </div>
+      <div className="px-10 md:px-30">
+        <h2 className="font-serif text-2xl font-bold">Overview</h2>
+        <p>{detail.overview}</p>
       </div>
     </div>
   );
