@@ -1,7 +1,8 @@
-import React, { useEffect, useState } from "react";
+import React, { act, useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { getDetails } from "../api/tmdb";
 import Button from "../components/Button";
+import CastCard from "../components/CastCard";
 
 function DetailPage() {
   const { mediaType, id } = useParams();
@@ -20,8 +21,8 @@ function DetailPage() {
   if (loading) return <div>Loading...</div>;
 
   return (
-    <div className="space-y-4">
-      <div className="relative w-full h-[70vh]">
+    <div className="space-y-4 bg-background">
+      <section className="relative w-full h-[70vh]">
         <div className="absolute inset-0 bg-linear-to-t from-slate-900 to-white-80/10"></div>
         <img
           src={`https://image.tmdb.org/t/p/original/${detail.backdrop_path}`}
@@ -64,11 +65,25 @@ function DetailPage() {
             </div>
           </div>
         </div>
-      </div>
-      <div className="px-10 md:px-30">
+      </section>
+      <section className="px-10 md:px-30">
         <h2 className="font-serif text-2xl font-bold">Overview</h2>
         <p>{detail.overview}</p>
-      </div>
+      </section>
+      <section className="px-10 md:px-30 mb-4">
+        <h2 className="font-serif text-2xl font-bold mb-4">Casts</h2>
+        <div className="grid grid-cols-2 md:grid-cols-5 lg:grid-cols-6 gap-4">
+          {detail.credits.cast.map((actor) => (
+            <div key={actor.cast_id} className="w-full ">
+              <CastCard
+                actor={actor.name}
+                character={actor.character}
+                imgSrc={actor.profile_path}
+              />
+            </div>
+          ))}
+        </div>
+      </section>
     </div>
   );
 }
