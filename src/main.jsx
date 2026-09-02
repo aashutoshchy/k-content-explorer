@@ -6,6 +6,7 @@ import { createBrowserRouter, Route, RouterProvider } from "react-router-dom";
 import Layout from "./layouts/Layout";
 import Home from "./pages/Home";
 import DetailPage from "./pages/DetailPage";
+import SearchPage from "./pages/SearchPage";
 
 const router = createBrowserRouter([
   {
@@ -19,6 +20,10 @@ const router = createBrowserRouter([
       {
         path: ":mediaType/:id",
         element: <DetailPage />,
+      },
+      {
+        path: "search",
+        element: <SearchPage />,
       },
     ],
   },
