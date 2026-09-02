@@ -21,7 +21,7 @@ function HeroBanner({ featured }) {
         alt="Banner Image"
         className="w-full h-full object-cover object-center"
       />
-      <div className="absolute lg:w-1/2 px-10 inset-0 flex flex-col justify-center gap-4 text-white">
+      <div className="absolute lg:w-1/2 px-4 lg:px-10 inset-0 flex flex-col justify-center gap-4 text-white">
         <h1 className="font-bold text-4xl font-serif">
           {featured.name || featured.title}
         </h1>

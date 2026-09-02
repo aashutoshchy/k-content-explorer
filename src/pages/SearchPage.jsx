@@ -23,15 +23,20 @@ function SearchPage() {
   console.log("Total results", results);
 
   return (
-    <div>
-      <h2>Search results for {query}</h2>
-      <div className="grid grid-cols-4">
+    <div className="px-4 lg:px-10">
+      <h2 className="my-4">
+        Search results for <b>{query.toUpperCase()}</b>
+      </h2>
+      <div className="flex justify-center md:justify-start flex-wrap gap-4">
         {results.map((result) => (
-          <div key={result.id} className="h-[300px] w-[300px]">
+          <div
+            key={result.id}
+            className="w-full md:h-[400px] md:w-[220px] bg-accent rounded-2xl overflow-hidden"
+          >
             <MediaCard
               posterPath={result.poster_path}
               title={result.name || result.title}
-              releaseDate={result.release_date}
+              releaseDate={result.release_date || result.first_air_date}
               rating={result.vote_average}
             />
           </div>

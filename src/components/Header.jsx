@@ -13,7 +13,7 @@ function Header() {
 
   return (
     <header>
-      <nav className="h-15 w-full px-10  bg-accent flex items-center justify-between gap-10">
+      <nav className="h-15 w-full px-2 lg:px-10  bg-accent flex items-center justify-between gap-10">
         <div className="logo h-1/2">
           <img src={logo} alt="logo" className="h-full w-full" />
         </div>

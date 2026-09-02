@@ -29,7 +29,7 @@ function DetailPage() {
           alt=""
           className="inset-0 h-full w-full object-cover"
         />
-        <div className="absolute bottom-10 w-full flex flex-col md:flex-row  items-center justify-between gap-10 px-10 md:px-30">
+        <div className="absolute bottom-10 w-full flex flex-col md:flex-row  items-center justify-between gap-10 px-4 lg:px-10 md:px-30">
           <img
             src={`https://image.tmdb.org/t/p/original/${detail.poster_path}`}
             alt="Poster Image"
@@ -66,11 +66,11 @@ function DetailPage() {
           </div>
         </div>
       </section>
-      <section className="px-10 md:px-30">
+      <section className="px-4 lg:px-10 md:px-30">
         <h2 className="font-serif text-2xl font-bold">Overview</h2>
         <p>{detail.overview}</p>
       </section>
-      <section className="px-10 md:px-30 mb-4">
+      <section className="px-4 lg:px-10 md:px-30 mb-4">
         <h2 className="font-serif text-2xl font-bold mb-4">Casts</h2>
         <div className="grid grid-cols-2 md:grid-cols-5 lg:grid-cols-6 gap-4">
           {detail.credits.cast.map((actor) => (
