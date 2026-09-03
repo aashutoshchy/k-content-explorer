@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom";
 import { getDetails } from "../api/tmdb";
 import Button from "../components/Button";
 import CastCard from "../components/CastCard";
+import { ThreeDot } from "react-loading-indicators";
 
 function DetailPage() {
   const { mediaType, id } = useParams();
@@ -18,7 +19,13 @@ function DetailPage() {
 
   console.log(detail);
 
-  if (loading) return <div>Loading...</div>;
+  if (loading) {
+    return (
+      <div className="h-[90vh] w-full flex items-center justify-center">
+        <ThreeDot color="#d9a299" size="medium" text="" textColor="" />
+      </div>
+    );
+  }
 
   return (
     <div className="space-y-4 bg-background">

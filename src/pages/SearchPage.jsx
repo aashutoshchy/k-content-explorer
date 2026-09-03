@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useSearchParams } from "react-router-dom";
 import MediaCard from "../components/MediaCard";
 import { getKoreanSearchResults } from "../api/tmdb";
+import { ThreeDot } from "react-loading-indicators";
 
 function SearchPage() {
   const [searchParams] = useSearchParams();
@@ -18,9 +19,20 @@ function SearchPage() {
     });
   }, [query]);
 
-  if (loading) return <div>Loading...</div>;
+  if (loading) {
+    return (
+      <div className="h-[90vh] w-full flex items-center justify-center">
+        <ThreeDot color="#d9a299" size="medium" text="" textColor="" />
+      </div>
+    );
+  }
 
-  console.log("Total results", results);
+  if (results.length === 0)
+    return (
+      <h2 className="px-4 lg:px-10 my-4">
+        No Result found for <b>{query.toUpperCase()}</b>
+      </h2>
+    );
 
   return (
     <div className="px-4 lg:px-10">
